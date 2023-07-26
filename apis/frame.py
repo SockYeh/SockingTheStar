@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw, ImageFont
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-router = APIRouter(prefix="/frame", tags=["frame"])
+router = APIRouter(prefix="/api/frame", tags=["frame"])
 
 
 class Youtube(BaseModel):

@@ -1,16 +1,7 @@
 import asyncio
-from utils import database_funcs
+from utils.database_funcs import *
 
+# print(create_user(email="someguy@gmail.com", username="someguy", password="someguy"))
 
-async def main():
-    e = await database_funcs.login_user(
-        email="asfsfaasfasfsfaassf@gmail.com", password="something123"
-    )
-    a = await database_funcs.logout_user()
-    print(a)
-
-    return
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
+print(fetch_api_key(user_id="b62d4953-8a0a-46a2-8617-4c1cf443db38"))
+print(fetch_omk(user_id="sockyeh"))
