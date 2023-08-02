@@ -38,3 +38,22 @@ def fetch_api_key(user_id: str) -> str:
     return (
         supabase.table("auth_db").select("api_key").eq("id", user_id).execute()
     ).data[0]["api_key"]
+
+
+def validate_api_key(api_key: str) -> str:
+    """Validates the API key of a user."""
+    return (
+        supabase.table("auth_db").select("api_key").eq("api_key", api_key).execute()
+    ).data[0]["api_key"] == api_key
+
+
+def validate_user(email: str, password: str) -> bool:
+    """Validates the credentials of a user."""
+    op = (
+        supabase.table("auth_db")
+        .select("email")
+        .eq("email", email)
+        .eq("password", password)
+        .execute()
+    ).data[0]
+    return op["email"] == email
